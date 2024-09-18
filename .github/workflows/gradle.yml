@@ -78,14 +78,14 @@ jobs:
         if: startsWith(matrix.os, 'ubuntu') && startsWith(github.ref, 'refs/tags') && startsWith(matrix.java, '8')
         uses: actions/upload-artifact@v4
         with:
-            name: artifacts-${{ matrix.os }}
+            name: artifacts-${{ matrix.os }}-OMERO
             path: build/distributions/OMERO*
             if-no-files-found: error
       - name: Upload jar
         if: startsWith(matrix.os, 'ubuntu') && startsWith(github.ref, 'refs/tags') && startsWith(matrix.java, '8')
         uses: actions/upload-artifact@v4
         with:
-          name: artifacts-${{ matrix.os }}
+          name: artifacts-${{ matrix.os }}-omero_
           path: build/libs/omero_*
           if-no-files-found: error
       - name: Upload insight artifacts
