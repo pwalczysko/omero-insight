@@ -82,8 +82,8 @@ jobs:
             path: build/distributions/OMERO*
             if-no-files-found: error
       - name: Upload jar
-        if: startsWith(matrix.os, 'ubuntu') && startsWith(github.ref, 'refs/tags') && startsWith(matrix.java, '8')
-        uses: actions/upload-artifact@v3
+        if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.java, '8')
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts-${{ matrix.os }}
           path: build/libs/omero_*
