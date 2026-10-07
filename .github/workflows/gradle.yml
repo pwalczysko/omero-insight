@@ -63,6 +63,10 @@ jobs:
       - name: List artifacts
         run: ls -R artifacts*
       - name: Create a GitHub release
-        run: gh release create --generate-notes "${GITHUB_REF#refs/tags/}" artifacts*/*
+        run: |
+          gh release create \
+            --generate-notes \
+            "${GITHUB_REF#refs/tags/}" \
+            $(find artifacts* -type f)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
